@@ -1,3 +1,4 @@
+//Change these two to whatever spell name you want and the name of the animation macro you want executed
 const SPELL_NAME = 'Magic Missile'; 
 const ANIM_NAME = 'MagicMissileRanColor';
 (async () => {
@@ -15,10 +16,7 @@ const ANIM_NAME = 'MagicMissileRanColor';
     }
 
     const macro = game.macros.getName(ANIM_NAME);
-    if(macro){
-        macro.execute();
-    } else{
-        ui.notifications.warn("Dumbass you need to imprt the macro " + ANIM_NAME);
-    }
+    macro.execute();
+    AudioHelper.play({src: "https://darthraderfoundrybucketyo.s3.amazonaws.com/Sounds/magic-missiles.wav"}, true);
 
-})(); 
+})();

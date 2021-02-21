@@ -28,10 +28,6 @@ const ITEM_UUID = 'Compendium.pf2e.feature-effects.uBJsxCzNhje8m8jj'; // Feature
                 ui.notifications.warn("You ain't got no panache. You can't do a finisher!!");  
                 return;  
             }
-            let hasCape = token.actor.items.find(i => i.type === 'effect' && i.data.flags.core?.sourceId === CLOAK_UUID);
-            if (hasCape){
-                capeBonus = 1;
-            }
         }
         
         let strike = actor.data.data.actions.filter(a => a.type === 'strike').find(s => s.name === 'Rapier');
@@ -40,7 +36,7 @@ const ITEM_UUID = 'Compendium.pf2e.feature-effects.uBJsxCzNhje8m8jj'; // Feature
         AudioHelper.play({src: "https://darthraderfoundrybucketyo.s3.amazonaws.com/Sounds/sword.mp3"}, true);
         let rollMessage = strike.variants[mapIndex]?.roll(event, options);
         Hooks.once('renderChatMessage', (chatItem, html) => {
-            const macroSword = game.macros.getName("SwordPurple");
+            const macroSword = game.macros.getName("SwordSimple");
             macroSword.execute();
             let weapon = actor.data.items.find(item => item.name == 'Rapier')
             let wepRoll = `2${weapon.data.damage.die}`
