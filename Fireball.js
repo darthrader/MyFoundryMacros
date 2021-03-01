@@ -1,6 +1,10 @@
-const SPELL_NAME = 'Fireball'; 
+//change this to whatever spell you want
+const SPELL_NAME = 'Fireball';
+//path to animation goes here
 const ANIM_PATH = "modules/jb2a_patreon/Library/2nd_Level/Flaming_Sphere/Opacities/FlamingSphere_01_Orange_75OPA_200x200.webm";
-const SPELL_RADIUS = 20;
+//change this to spell range or radius if AOE
+const SPELL_RANGE = 20;
+//options for this spell are circle, cone, emanation, burst, line 
 const SPELL_SHAPE = 'circle';
 (async () => {
     for await (const token of canvas.tokens.controlled) {
@@ -26,7 +30,7 @@ const SPELL_SHAPE = 'circle';
         y: 1000,
         direction: 0,
         //   angle: 57,
-        distance: SPELL_RADIUS,
+        distance: SPELL_RANGE,
         borderColor: "#000000",
         fillColor: "#000000",
         tmfxPreset: null,
